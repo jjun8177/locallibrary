@@ -48,13 +48,14 @@ class Book(models.Model):
 
     display_genre.short_description = 'Genre'
 
+    def __str__(self):
+        """String for representing the Model object."""
+        return self.title
+
     def get_absolute_url(self):
         """Returns the url to access a particular book instance."""
         return reverse('book-detail', args=[str(self.id)])
 
-    def __str__(self):
-        """String for representing the Model object."""
-        return self.title
 
 
 import uuid  # Required for unique book instances
@@ -79,7 +80,7 @@ class BookInstance(models.Model):
         return False
 
     LOAN_STATUS = (
-        ('d', 'Maintenance'),
+        ('m', 'Maintenance'),
         ('o', 'On loan'),
         ('a', 'Available'),
         ('r', 'Reserved'),
@@ -117,4 +118,4 @@ class Author(models.Model):
 
     def __str__(self):
         """String for representing the Model object."""
-        return '{0}, {1}'.format(self.last_name, self.first_name)
+        return f'{self.last_name}, {self.first_name}'
