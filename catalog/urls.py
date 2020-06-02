@@ -32,7 +32,7 @@ urlpatterns += [
     path('author/<int:pk>/delete/', views.AuthorDelete.as_view(), name='author_delete'),
 ]
 
-# Add URLConf to create, update, and delete books
+
 urlpatterns += [
     path('book/create/', views.BookCreate.as_view(), name='book_create'),
     path('book/<int:pk>/update/', views.BookUpdate.as_view(), name='book_update'),
